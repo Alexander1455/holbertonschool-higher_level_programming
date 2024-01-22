@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Lookup module.
 
 Contains a function that returns the list of
