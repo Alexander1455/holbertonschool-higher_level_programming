@@ -1,26 +1,39 @@
 #!/usr/bin/python3
-"""Rectangle module.
-
-Contains a class Rectangle that inherits from
-BaseGeometry and some methods.
 """
+Contains parent class BaseGeometry
+with public instance method area and integer_validation
+Contains subclass Rectangle
+with instantiation of private attributes width and height, validated by parent,
+extends parent's area method and prints with __str__
+"""
+
+
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """Defines the Rectangle class that inherits from BaseGeometry."""
-
+    """inherits from BaseGeometry
+    Methods:
+        __init__(self, width, height)
+        area(self)
+        __str__
+    """
     def __init__(self, width, height):
-        """Checks and sets the default attributes of Rectangle class."""
+        """validate and initialize width and height
+        Args:
+            width (int): private
+            height (int): private
+        """
         self.integer_validator("width", width)
-        self.__width = width
         self.integer_validator("height", height)
+        self.__width = width
         self.__height = height
 
-    def __str__(self):
-        """Sets the str behaviour."""
-        return "[Rectangle] {:d}/{:d}".format(self.__width, self.__height)
-
     def area(self):
-        """Returns the area of the rectangle."""
+        """extends parent's empty method and returns area"""
         return self.__width * self.__height
+
+    def __str__(self):
+        """prints [Rectangle] <width>/<height>"""
+        return "[{:s}] {:d}/{:d}".format(self.__class__.__name__,
+                                         self.__width, self.__height)
